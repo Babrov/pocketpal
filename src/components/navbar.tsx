@@ -10,8 +10,8 @@ import Link from 'next/link';
 
 const navigation = [
   { name: 'Dashboard', href: '/' },
-  { name: 'Categories', href: '/categories' },
   { name: 'Budget', href: '/budget' },
+  { name: 'Categories', href: '/categories' },
   { name: 'Profile', href: '/profile' },
 ];
 

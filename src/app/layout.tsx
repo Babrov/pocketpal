@@ -19,13 +19,15 @@ export default async function RootLayout({
     <html lang='en' className='h-full bg-gray-50'>
     <body className='h-full'>
     <header>
-      <Suspense>
+      <Suspense fallback={'...Loading'}>
         <Nav />
       </Suspense>
     </header>
-    {children}
+    <main className="h-full">
+      {children}
+    </main>
     <AddButton />
-    <AddModal/>
+    <AddModal />
     </body>
     </html>
   );

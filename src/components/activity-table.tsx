@@ -8,6 +8,11 @@ import {
   Text
 } from '@tremor/react';
 
+import Image from 'next/image';
+
+import MinusIcon from '../assets/minus-circle.svg';
+import PlusIcon from '../assets/plus-circle.svg';
+
 interface OperationInterface {
   id: string;
   type: string;
@@ -17,10 +22,10 @@ interface OperationInterface {
 }
 
 interface Props {
-  operations: OperationInterface[]
+  operations: OperationInterface[];
 }
 
-export default function ActivityTable({operations}:Props) {
+export default function ActivityTable({ operations }: Props) {
   return (
     <Table>
       <TableHead>
@@ -34,7 +39,8 @@ export default function ActivityTable({operations}:Props) {
       <TableBody>
         {operations.map((operation) => (
           <TableRow key={operation.id}>
-            <TableCell>{operation.type}</TableCell>
+            <TableCell className="w-50 w-min-50">{operation.type === 'expense' ? <Image className="svg:fill-amber-700" height={20} width={20} alt={'minus-icon'} src={MinusIcon} /> :
+              <Image height={20} width={20} alt={'plus-icon'} src={PlusIcon} />}</TableCell>
             <TableCell>
               <Text>{operation.amount}</Text>
             </TableCell>
@@ -42,7 +48,7 @@ export default function ActivityTable({operations}:Props) {
               <Text>{operation.category}</Text>
             </TableCell>
             <TableCell>
-              <Text>{operation.createdAt.toString()}</Text>
+              <Text>{operation.createdAt.toLocaleString()}</Text>
             </TableCell>
           </TableRow>
         ))}
