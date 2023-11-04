@@ -2,18 +2,20 @@
   "name": "pocketpal",
   "private": true,
   "license": "MIT",
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=3"
+  },
+  "scripts": {
+    "build:all": "pnpm --recursive --parallel run build"
+  },
   "dependencies": {
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
-    "typescript": "5.2.2"
+    "typescript": "5.2.2",
+    "rimraf": "^5.0.5"
   },
   "devDependencies": {
-    "@types/node": "20.5.6"
-  },
-  "prettier": {
-    "arrowParens": "always",
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "none"
+    "@types/node": "^20.8.10"
   }
 }
