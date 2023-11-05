@@ -1,6 +1,5 @@
 <h1 align="center"><strong>PocketPal</strong></h1>
-<div align="center"><strong>Next.js 13 Expenses Application</strong></div>
-<div align="center">Built with the Next.js App Router</div>
+<div align="center"><strong>Expenses Manager Application</strong></div>
 <br />
 
 ## Overview
