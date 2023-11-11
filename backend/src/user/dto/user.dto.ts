@@ -1,7 +1,15 @@
-import { CategoryInterface, CurrencyEnum, UserInterface } from '@pocketpal/contracts';
+import {
+  CategoryInterface,
+  CurrencyEnum,
+  ExpenseInterface,
+  IncomeInterface,
+  UserInterface
+} from '@pocketpal/contracts';
 import { BaseDto } from '../../generic/base.dto';
 import { Column, Entity, Index, OneToMany } from 'typeorm';
 import { CategoryDto } from '../../category/dto/category.dto';
+import { IncomeDto } from '../../income/dto/income.dto';
+import { ExpenseDto } from '../../expense/dto/expense.dto';
 
 @Entity('users')
 export class UserDto extends BaseDto implements UserInterface {
@@ -18,9 +26,16 @@ export class UserDto extends BaseDto implements UserInterface {
   @Column()
   password!: string;
 
-  @Column('enum', { enum: CurrencyEnum, default: CurrencyEnum.EUR })
+  @Column('enum', { enum: CurrencyEnum, default: CurrencyEnum.EUR, enumName: 'currency_enum' })
   currency!: CurrencyEnum;
 
   @OneToMany(() => CategoryDto, (category) => category.user)
   categories!: CategoryInterface[]
+
+
+  @OneToMany(() => IncomeDto, (incomes) => incomes.user)
+  incomes!: IncomeInterface[];
+
+  @OneToMany(() => ExpenseDto, (expenses) => expenses.user)
+  expenses!: ExpenseInterface[];
 }

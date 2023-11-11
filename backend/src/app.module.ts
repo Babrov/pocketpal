@@ -3,11 +3,30 @@ import { CategoryModule } from './category/category.module';
 import { ExpenseModule } from './expense/expense.module';
 import { IncomeModule } from './income/income.module';
 import { UserModule } from './user/user.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { resolve } from 'path';
 
 @Module({
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      // TODO: add config envs
+      username: 'pocketpaldb',
+      password: 'adminpocketpal',
+      database: 'pocketpaldb',
+      entities: [resolve(__dirname + '/**/*.dto{.ts,.js}')],
+      migrations: [resolve(__dirname, '../migration/*.{ts,js}')],
+      synchronize: false,
+      autoLoadEntities: true,
+      retryAttempts: 1,
+      migrationsRun: true,
+      keepConnectionAlive: true
+    }),
+    CategoryModule, ExpenseModule, IncomeModule, UserModule],
   controllers: [],
-  providers: [],
-  imports: [CategoryModule, ExpenseModule, IncomeModule,UserModule]
+  providers: []
 })
 export class AppModule {
 }
