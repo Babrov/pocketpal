@@ -1,3 +1,217 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:react/all",
+    "plugin:@typescript-eslint/all",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:jest/all",
+    "plugin:node/recommended",
+    "plugin:promise/recommended",
+    "plugin:rxjs/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "ignorePatterns": [
+    "dist",
+    "node_modules",
+    "vite.config.ts"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "import",
+    "jest",
+    "node",
+    "promise",
+    "rxjs",
+    "react-hooks"
+  ],
+  "rules": {
+    "@typescript-eslint/no-confusing-void-expression": [
+      "error",
+      {
+        "ignoreVoidOperator": true
+      }
+    ],
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "semi",
+          "requireLast": true
+        },
+        "singleline": {
+          "delimiter": "semi",
+          "requireLast": false
+        },
+        "multilineDetection": "brackets"
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "caseInsensitive": true,
+          "order": "asc"
+        },
+        "groups": [
+          "builtin",
+          "external",
+          "object",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ]
+      }
+    ],
+    "node/no-missing-import": [
+      "error",
+      {
+        "tryExtensions": [
+          ".js",
+          ".json",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
+    "sort-imports": [
+      "error",
+      {
+        "allowSeparatedGroups": false,
+        "ignoreCase": false,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": [
+          "all",
+          "multiple",
+          "none",
+          "single"
+        ]
+      }
+    ],
+    "no-empty-function": [
+      "error",
+      {
+        "allow": [
+          "constructors"
+        ]
+      }
+    ],
+    "arrow-body-style": [
+      "error",
+      "as-needed"
+    ],
+    "max-lines-per-function": [
+      "error",
+      {
+        "max": 85,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ],
+    "max-statements": [
+      "error",
+      {
+        "max": 12
+      },
+      {
+        "ignoreTopLevelFunctions": true
+      }
+    ],
+    "id-length": [
+      "error",
+      {
+        "exceptions": [
+          "_",
+          "w",
+          "h"
+        ]
+      }
+    ],
+    "max-params": [
+      "error",
+      {
+        "max": 4
+      }
+    ],
+    "newline-before-return": "error",
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".tsx"
+        ]
+      }
+    ],
+    "react/jsx-max-depth": [
+      "warn",
+      {
+        "max": 6
+      }
+    ],
+    "no-magic-numbers": [
+      "error",
+      {
+        "ignore": [
+          0,
+          1
+        ]
+      }
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "react/forbid-component-props": [
+      "warn"
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn"
+    ],
+    "no-console": [
+      "warn"
+    ],
+    "no-void": "off",
+    "jest/require-hook": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-no-literals": "off",
+    "react/jsx-no-bind": "off",
+    "react/function-component-definition": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-meaningless-void-operator": "off",
+    "@typescript-eslint/no-magic-numbers": "off",
+    "node/no-unpublished-import": "off",
+    "sort-keys": "off",
+    "@typescript-eslint/prefer-readonly-parameter-types": "off"
+  },
+  "settings": {
+    "jest": {
+      "version": 29
+    },
+    "react": {
+      "version": "detect"
+    }
+  }
 }

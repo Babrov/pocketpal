@@ -1,14 +1,4 @@
-import {
-  Table,
-  TableHead,
-  TableRow,
-  TableHeaderCell,
-  TableBody,
-  TableCell,
-  Text,
-  Card,
-  Title
-} from '@tremor/react';
+import { Card, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow, Text } from '@tremor/react';
 
 import Image from 'next/image';
 
@@ -40,11 +30,15 @@ export default function ActivityTable({ operations }: Props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {operations.map((operation) => (
+          {operations.map(operation => (
             <TableRow key={operation.id}>
-              <TableCell className='w-50 w-min-50'>{operation.type === 'expense' ?
-                <Image className='svg:fill-amber-700' height={20} width={20} alt={'minus-icon'} src={MinusIcon} /> :
-                <Image height={20} width={20} alt={'plus-icon'} src={PlusIcon} />}</TableCell>
+              <TableCell className="w-50 w-min-50">
+                {operation.type === 'expense' ? (
+                  <Image className="svg:fill-amber-700" height={20} width={20} alt={'minus-icon'} src={MinusIcon} />
+                ) : (
+                  <Image height={20} width={20} alt={'plus-icon'} src={PlusIcon} />
+                )}
+              </TableCell>
               <TableCell>
                 <Text>{operation.amount}</Text>
               </TableCell>
