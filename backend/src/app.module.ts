@@ -5,6 +5,7 @@ import { IncomeModule } from './income/income.module';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { resolve } from 'path';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -24,9 +25,13 @@ import { resolve } from 'path';
       migrationsRun: true,
       keepConnectionAlive: true
     }),
-    CategoryModule, ExpenseModule, IncomeModule, UserModule],
+    CategoryModule,
+    ExpenseModule,
+    IncomeModule,
+    UserModule,
+    AuthModule
+  ],
   controllers: [],
   providers: []
 })
-export class AppModule {
-}
+export class AppModule {}
