@@ -1,5 +1,5 @@
-import { BaseInterface } from '../generic';
-import { CurrencyEnum } from '../enum/currency.enum';
+import type { CurrencyEnum } from '../enum/currency.enum';
+import type { BaseInterface } from '../generic';
 
 export interface UserInterface extends BaseInterface {
   name: string;

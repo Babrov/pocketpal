@@ -1,8 +1,10 @@
+import type { IncomeInterface } from '@pocketpal/contracts';
+import { CurrencyEnum , UserInterface } from '@pocketpal/contracts';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
+
 import { BaseDto } from '../../generic/base.dto';
-import type { IncomeInterface, UserInterface } from '@pocketpal/contracts';
 import { UserDto } from '../../user/dto/user.dto';
-import { CurrencyEnum } from '@pocketpal/contracts';
+
 
 @Entity('incomes')
 export class IncomeDto extends BaseDto implements IncomeInterface {

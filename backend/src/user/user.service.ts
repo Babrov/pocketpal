@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
+import type { UserInterface } from '@pocketpal/contracts';
+import type { Observable } from 'rxjs';
+
 import { UserRepository } from './user.repository';
-import { UserInterface } from '@pocketpal/contracts';
-import { Observable } from 'rxjs';
 
 @Injectable()
 export class UserService {

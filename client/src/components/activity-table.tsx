@@ -1,5 +1,4 @@
 import { Card, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow, Text } from '@tremor/react';
-
 import Image from 'next/image';
 
 import MinusIcon from '../assets/minus-circle.svg';
@@ -14,7 +13,7 @@ interface OperationInterface {
 }
 
 interface Props {
-  operations: OperationInterface[];
+  readonly operations: OperationInterface[];
 }
 
 export default function ActivityTable({ operations }: Props) {
@@ -23,7 +22,7 @@ export default function ActivityTable({ operations }: Props) {
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeaderCell></TableHeaderCell>
+            <TableHeaderCell />
             <TableHeaderCell>Amount</TableHeaderCell>
             <TableHeaderCell>Category</TableHeaderCell>
             <TableHeaderCell>Date</TableHeaderCell>
@@ -34,9 +33,9 @@ export default function ActivityTable({ operations }: Props) {
             <TableRow key={operation.id}>
               <TableCell className="w-50 w-min-50">
                 {operation.type === 'expense' ? (
-                  <Image className="svg:fill-amber-700" height={20} width={20} alt={'minus-icon'} src={MinusIcon} />
+                  <Image alt="minus-icon" className="svg:fill-amber-700" height={20} src={MinusIcon} width={20} />
                 ) : (
-                  <Image height={20} width={20} alt={'plus-icon'} src={PlusIcon} />
+                  <Image alt="plus-icon" height={20} src={PlusIcon} width={20} />
                 )}
               </TableCell>
               <TableCell>

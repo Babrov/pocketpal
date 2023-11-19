@@ -1,6 +1,7 @@
 import { Module } from "@nestjs/common";
-import { ExpenseDto } from './dto/expense.dto';
 import { TypeOrmModule } from "@nestjs/typeorm";
+
+import { ExpenseDto } from './dto/expense.dto';
 
 @Module({
   imports: [

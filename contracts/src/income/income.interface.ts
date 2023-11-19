@@ -1,6 +1,6 @@
-import { UserInterface } from '../user';
-import { BaseInterface } from '../generic';
-import { CurrencyEnum } from '../enum/currency.enum';
+import type { CurrencyEnum } from '../enum/currency.enum';
+import type { BaseInterface } from '../generic';
+import type { UserInterface } from '../user';
 
 export interface IncomeInterface extends BaseInterface {
   amount: number;

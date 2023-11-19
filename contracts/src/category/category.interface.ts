@@ -1,4 +1,4 @@
-import { BaseInterface } from '../generic';
+import type { BaseInterface } from '../generic';
 
 export interface CategoryInterface extends BaseInterface {
   name: string;

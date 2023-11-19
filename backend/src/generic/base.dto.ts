@@ -1,4 +1,4 @@
-import { BaseInterface } from "@pocketpal/contracts";
+import type { BaseInterface } from "@pocketpal/contracts";
 import { IsUUID } from "class-validator";
 import { CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 

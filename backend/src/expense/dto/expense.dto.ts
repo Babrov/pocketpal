@@ -1,7 +1,8 @@
+import type { ExpenseInterface } from '@pocketpal/contracts';
+import { CurrencyEnum , UserInterface } from '@pocketpal/contracts';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
+
 import { BaseDto } from '../../generic/base.dto';
-import type { ExpenseInterface, UserInterface } from '@pocketpal/contracts';
-import { CurrencyEnum } from '@pocketpal/contracts';
 import { UserDto } from '../../user/dto/user.dto';
 
 @Entity('expenses')

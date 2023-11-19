@@ -7,16 +7,29 @@
     "pnpm": ">=3"
   },
   "scripts": {
-    "build:all": "pnpm --recursive --parallel run build"
+    "build:all": "pnpm --recursive --parallel run build",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
-  "dependencies": {
-    "eslint-config-next": "13.4.19",
-    "rimraf": "^5.0.5",
-    "typescript": "5.2.2"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
+    "rimraf": "^5.0.5",
+    "typescript": "5.2.2",
     "@types/node": "^20.8.10",
     "eslint": "8.48.0",
+    "eslint-config-next": "13.4.19",
     "eslint-plugin-jest": "^27.6.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-node": "^11.1.0",
@@ -32,7 +45,7 @@
     "eslint-plugin-n": "^16.0.2",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "@typescript-eslint/parser": "^6.10.0",
+    "@typescript-eslint/parser": "^6.4.1",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "prettier": "^3.0.3"
   }

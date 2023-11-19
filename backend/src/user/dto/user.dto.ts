@@ -1,10 +1,12 @@
-import { CategoryInterface, CurrencyEnum, ExpenseInterface, IncomeInterface, UserInterface } from '@pocketpal/contracts';
-import { BaseDto } from '../../generic/base.dto';
-import { Column, Entity, Index, OneToMany } from 'typeorm';
-import { CategoryDto } from '../../category/dto/category.dto';
-import { IncomeDto } from '../../income/dto/income.dto';
-import { ExpenseDto } from '../../expense/dto/expense.dto';
+import type { CategoryInterface, ExpenseInterface, IncomeInterface, UserInterface } from '@pocketpal/contracts';
+import { CurrencyEnum } from '@pocketpal/contracts';
 import { IsEnum, IsNotEmpty, IsString } from 'class-validator';
+import { Column, Entity, Index, OneToMany } from 'typeorm';
+
+import { CategoryDto } from '../../category/dto/category.dto';
+import { ExpenseDto } from '../../expense/dto/expense.dto';
+import { BaseDto } from '../../generic/base.dto';
+import { IncomeDto } from '../../income/dto/income.dto';
 
 @Entity('users')
 export class UserDto extends BaseDto implements UserInterface {

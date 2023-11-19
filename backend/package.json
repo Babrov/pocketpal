@@ -7,6 +7,7 @@
     "build": "pnpm nest build",
     "clear": "pnpm rimraf dist && pnpm rimraf node_modules/.cache",
     "clear:deps": "pnpm rimraf node_modules && pnpm clear",
+    "lint": "eslint --quiet --fix src",
     "start": "pnpm nest start",
     "start:debug": "pnpm nest --debug --watch",
     "start:dev": "pnpm nest start --watch",

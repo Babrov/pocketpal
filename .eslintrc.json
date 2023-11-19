@@ -23,14 +23,20 @@
   "ignorePatterns": [
     "dist",
     "node_modules",
-    "vite.config.ts"
+    "tailwind.config.ts"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 2022,
+    "ecmaVersion": 2020,
+    "project": [
+      "./client/*/tsconfig.json",
+      "./contracts/*/tsconfig.json",
+      "./backend/*/tsconfig.json",
+      "./tsconfig.json"
+    ],
     "sourceType": "module"
   },
   "plugins": [
@@ -194,17 +200,23 @@
       "warn"
     ],
     "no-void": "off",
+    "sort-keys": "off",
     "jest/require-hook": "off",
     "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": "off",
     "react/jsx-no-literals": "off",
     "react/jsx-no-bind": "off",
-    "react/function-component-definition": "off",
+    "node/no-unpublished-import": "off",
+    "node/no-unsupported-features/es-syntax": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-meaningless-void-operator": "off",
     "@typescript-eslint/no-magic-numbers": "off",
-    "node/no-unpublished-import": "off",
-    "sort-keys": "off",
-    "@typescript-eslint/prefer-readonly-parameter-types": "off"
+    "@typescript-eslint/prefer-readonly-parameter-types": "off",
+    "@typescript-eslint/require-await": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "@typescript-eslint/no-extraneous-class": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/parameter-properties": "off"
   },
   "settings": {
     "jest": {

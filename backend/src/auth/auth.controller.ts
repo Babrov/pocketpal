@@ -1,4 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
+
 import { AuthService } from './auth.service';
 
 @Controller({ version: '1', path: 'auth' })
@@ -12,6 +13,6 @@ export class AuthController {
 
   @Post('login')
   login(@Body() body: any) {
-    return this.auth.login(body);
+    return void this.auth.login(body);
   }
 }

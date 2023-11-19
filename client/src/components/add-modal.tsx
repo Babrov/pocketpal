@@ -1,7 +1,8 @@
 'use client';
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Button, NumberInput, Select, SelectItem } from '@tremor/react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
 import { Modal } from './modal';
 
 export default function AddModal(): JSX.Element | null {
@@ -17,7 +18,7 @@ export default function AddModal(): JSX.Element | null {
     router.push(`${pathname}?${newParams.toString()}`);
   };
 
-  return <Modal onClose={handleClose} isOpen={isOpen}>
+  return <Modal isOpen={isOpen} onClose={handleClose}>
     <div className="flex flex-col gap-10">
       <h2 className='text-2xl font-semibold mb-4'>New Expense</h2>
 

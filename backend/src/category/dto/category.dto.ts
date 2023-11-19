@@ -1,6 +1,7 @@
-import type { CategoryInterface, UserInterface } from '@pocketpal/contracts';
-import { BaseDto } from '../../generic/base.dto';
+import type { CategoryInterface , type UserInterface } from '@pocketpal/contracts';
 import { Column, Entity, Index, JoinColumn, ManyToOne } from 'typeorm';
+
+import { BaseDto } from '../../generic/base.dto';
 import { UserDto } from '../../user/dto/user.dto';
 
 @Entity('categories')
@@ -15,7 +16,7 @@ export class CategoryDto extends BaseDto implements CategoryInterface {
   @Column('text', { default: '' })
   image!: string;
 
-  @ManyToOne(() => UserDto, (user) => user.categories)
+  @ManyToOne(() => UserDto, user => user.categories)
   @JoinColumn({ name: 'user_id' })
   user!: UserInterface;
 }

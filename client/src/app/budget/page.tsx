@@ -1,4 +1,5 @@
 import { AreaChart, Button, Card, DateRangePicker, Flex, Tab, TabGroup, TabList, TabPanel, TabPanels, Title } from '@tremor/react';
+
 import ActivityTable from '../../components/activity-table';
 
 const tableData = [
@@ -111,46 +112,46 @@ const tableData = [
 
 const chartdata = [
   {
-    date: "Jan 22",
+    date: 'Jan 22',
     SemiAnalysis: 2890,
-    "The Pragmatic Engineer": 2338,
+    'The Pragmatic Engineer': 2338
   },
   {
-    date: "Feb 22",
+    date: 'Feb 22',
     SemiAnalysis: 2756,
-    "The Pragmatic Engineer": 2103,
+    'The Pragmatic Engineer': 2103
   },
   {
-    date: "Mar 22",
+    date: 'Mar 22',
     SemiAnalysis: 3322,
-    "The Pragmatic Engineer": 2194,
+    'The Pragmatic Engineer': 2194
   },
   {
-    date: "Apr 22",
+    date: 'Apr 22',
     SemiAnalysis: 3470,
-    "The Pragmatic Engineer": 2108,
+    'The Pragmatic Engineer': 2108
   },
   {
-    date: "May 22",
+    date: 'May 22',
     SemiAnalysis: 3475,
-    "The Pragmatic Engineer": 1812,
+    'The Pragmatic Engineer': 1812
   },
   {
-    date: "Jun 22",
+    date: 'Jun 22',
     SemiAnalysis: 3129,
-    "The Pragmatic Engineer": 1726,
-  },
+    'The Pragmatic Engineer': 1726
+  }
 ];
 
-export default function BudgetPage() {
+export default function BudgetPage(): JSX.Element {
   return (
-    <div className='flex flex-col mx-auto max-w-7xl gap-5'>
-      <Flex justifyContent={'between'} className={'gap-5'}>
-        <DateRangePicker className='mx-auto' enableYearNavigation />
+    <div className="flex flex-col mx-auto max-w-7xl gap-5">
+      <Flex className="gap-5" justifyContent="between">
+        <DateRangePicker className="mx-auto" enableYearNavigation />
         <Button>Filter</Button>
       </Flex>
       <TabGroup>
-        <TabList className='mt-8'>
+        <TabList className="mt-8">
           <Tab>Table</Tab>
           <Tab>Analytics</Tab>
         </TabList>
@@ -162,18 +163,16 @@ export default function BudgetPage() {
             <Card>
               <Title>Newsletter revenue over time (USD)</Title>
               <AreaChart
+                categories={['SemiAnalysis', 'The Pragmatic Engineer']}
                 className="h-72 mt-4"
+                colors={['indigo', 'cyan']}
                 data={chartdata}
                 index="date"
-                categories={["SemiAnalysis", "The Pragmatic Engineer"]}
-                colors={["indigo", "cyan"]}
               />
             </Card>
           </TabPanel>
         </TabPanels>
       </TabGroup>
-
-
     </div>
   );
 }

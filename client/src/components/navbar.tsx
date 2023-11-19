@@ -1,12 +1,12 @@
 'use client';
 
-import { Fragment } from 'react';
-import { usePathname } from 'next/navigation';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { signIn, signOut } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { signIn, signOut } from 'next-auth/react';
+import { Fragment } from 'react';
 
 const navigation = [
   { name: 'Dashboard', href: '/' },
@@ -19,7 +19,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Navbar({ user }: { user: any }) {
+export default function Navbar({ user }: { readonly user: any }) {
   const pathname = usePathname();
 
   return (
@@ -32,15 +32,15 @@ export default function Navbar({ user }: { user: any }) {
                 <div className='hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8'>
                   {navigation.map((item) => (
                     <Link
-                      key={item.name}
-                      href={item.href}
+                      aria-current={pathname === item.href ? 'page' : undefined}
                       className={classNames(
                         pathname === item.href
                           ? 'border-slate-500 text-gray-900'
                           : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
                         'inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
                       )}
-                      aria-current={pathname === item.href ? 'page' : undefined}
+                      href={item.href}
+                      key={item.name}
                     >
                       {item.name}
                     </Link>
@@ -74,7 +74,7 @@ export default function Navbar({ user }: { user: any }) {
                                 active ? 'bg-gray-100' : '',
                                 'flex w-full px-4 py-2 text-sm text-gray-700'
                               )}
-                              onClick={() => signOut()}
+                              onClick={async () => signOut()}
                             >
                               Sign out
                             </button>
@@ -88,7 +88,7 @@ export default function Navbar({ user }: { user: any }) {
                                 active ? 'bg-gray-100' : '',
                                 'flex w-full px-4 py-2 text-sm text-gray-700'
                               )}
-                              onClick={() => signIn('github')}
+                              onClick={async () => signIn('github')}
                             >
                               Sign in
                             </button>
@@ -104,9 +104,9 @@ export default function Navbar({ user }: { user: any }) {
                   className='inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2'>
                   <span className='sr-only'>Open main menu</span>
                   {open ? (
-                    <XMarkIcon className='block h-6 w-6' aria-hidden='true' />
+                    <XMarkIcon aria-hidden='true' className='block h-6 w-6' />
                   ) : (
-                    <Bars3Icon className='block h-6 w-6' aria-hidden='true' />
+                    <Bars3Icon aria-hidden='true' className='block h-6 w-6' />
                   )}
                 </Disclosure.Button>
               </div>
@@ -117,16 +117,16 @@ export default function Navbar({ user }: { user: any }) {
             <div className='space-y-1 pt-2 pb-3'>
               {navigation.map((item) => (
                 <Disclosure.Button
-                  key={item.name}
+                  aria-current={pathname === item.href ? 'page' : undefined}
                   as={Link}
-                  href={item.href}
                   className={classNames(
                     pathname === item.href
                       ? 'bg-slate-50 border-slate-500 text-slate-700'
                       : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
                     'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
                   )}
-                  aria-current={pathname === item.href ? 'page' : undefined}
+                  href={item.href}
+                  key={item.name}
                 >
                   {item.name}
                 </Disclosure.Button>
@@ -138,11 +138,11 @@ export default function Navbar({ user }: { user: any }) {
                   <div className='flex items-center px-4'>
                     <div className='flex-shrink-0'>
                       <Image
-                        className='h-8 w-8 rounded-full'
-                        src={user.image}
-                        height={32}
-                        width={32}
                         alt={`${user.name} avatar`}
+                        className='h-8 w-8 rounded-full'
+                        height={32}
+                        src={user.image}
+                        width={32}
                       />
                     </div>
                     <div className='ml-3'>
@@ -156,8 +156,8 @@ export default function Navbar({ user }: { user: any }) {
                   </div>
                   <div className='mt-3 space-y-1'>
                     <button
-                      onClick={() => signOut()}
                       className='block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800'
+                      onClick={async () => signOut()}
                     >
                       Sign out
                     </button>
@@ -166,8 +166,8 @@ export default function Navbar({ user }: { user: any }) {
               ) : (
                 <div className='mt-3 space-y-1'>
                   <button
-                    onClick={() => signIn('github')}
                     className='flex w-full px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800'
+                    onClick={async () => signIn('github')}
                   >
                     Sign in
                   </button>
