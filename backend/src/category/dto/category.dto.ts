@@ -1,4 +1,5 @@
-import type { CategoryInterface , type UserInterface } from '@pocketpal/contracts';
+import { UserInterface } from '@pocketpal/contracts';
+import type { CategoryInterface } from '@pocketpal/contracts';
 import { Column, Entity, Index, JoinColumn, ManyToOne } from 'typeorm';
 
 import { BaseDto } from '../../generic/base.dto';
