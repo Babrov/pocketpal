@@ -182,7 +182,8 @@
       {
         "ignore": [
           0,
-          1
+          1,
+          10
         ]
       }
     ],
@@ -197,7 +198,7 @@
       "warn"
     ],
     "no-console": [
-      "warn"
+      "error"
     ],
     "no-void": "off",
     "sort-keys": "off",
@@ -216,7 +217,8 @@
     "@typescript-eslint/naming-convention": "off",
     "@typescript-eslint/no-extraneous-class": "off",
     "@typescript-eslint/explicit-member-accessibility": "off",
-    "@typescript-eslint/parameter-properties": "off"
+    "@typescript-eslint/parameter-properties": "off",
+    "@typescript-eslint/promise-function-async": "off"
   },
   "settings": {
     "jest": {

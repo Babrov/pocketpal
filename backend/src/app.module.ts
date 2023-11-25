@@ -16,8 +16,8 @@ import { UserModule } from './user/user.module';
       host: 'localhost',
       port: 5432,
       // TODO: add config envs
-      username: 'pocketpaldb',
-      password: 'adminpocketpal',
+      username: 'adminpocketpal',
+      password: 'pwd',
       database: 'pocketpaldb',
       entities: [resolve(__dirname + '/**/*.dto{.ts,.js}')],
       migrations: [resolve(__dirname, '../migration/*.{ts,js}')],

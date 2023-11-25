@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import type { UserInterface } from '@pocketpal/contracts';
+import type { UserCreateInterface, UserInterface } from '@pocketpal/contracts';
 import type { Observable } from 'rxjs';
 
 import { UserRepository } from './user.repository';
@@ -8,7 +8,11 @@ import { UserRepository } from './user.repository';
 export class UserService {
   constructor(private readonly repository: UserRepository) {}
 
-  create$(body: any): Observable<UserInterface> {
+  findByEmail$(email: string): Observable<UserInterface | null> {
+    return this.repository.findByEmail$(email);
+  }
+
+  create$(body: UserCreateInterface): Observable<UserInterface> {
     return this.repository.create$(body);
   }
 }

@@ -1,6 +1,6 @@
 import type { CategoryInterface, ExpenseInterface, IncomeInterface, UserInterface } from '@pocketpal/contracts';
 import { CurrencyEnum } from '@pocketpal/contracts';
-import { IsEnum, IsNotEmpty, IsString } from 'class-validator';
+import { IsEmail, IsEnum, IsNotEmpty, IsString } from 'class-validator';
 import { Column, Entity, Index, OneToMany } from 'typeorm';
 
 import { CategoryDto } from '../../category/dto/category.dto';
@@ -20,7 +20,7 @@ export class UserDto extends BaseDto implements UserInterface {
 
   @Column('text', { default: '' })
   @Index({ unique: true })
-  @IsNotEmpty()
+  @IsEmail()
   email!: string;
 
   @Column('text', { default: '' })
